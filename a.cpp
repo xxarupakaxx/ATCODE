@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
+//#include <atcoder/all>
 #define rep(i, n) for (int i = 0; i < (n); ++i)
+//using namespace atcoder;
 using namespace std;
 using ll = long long;
 using P = pair<ll, ll>;
@@ -65,9 +67,9 @@ int main()
     int n;
     cin >> n;
     bool b = false;
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i < 10; i++)
     {
-        for (int j = i + 1; j < n; j++)
+        for (int j = 1; j < 10; j++)
         {
             if (i * j == n)
             {
