@@ -69,22 +69,25 @@ int divideReverse(int x) {
     }
     return reverse;
 }
-int ksinsu(ll x, ll k) {
-    int sum = 0;
-    while (x > 0) {
-        x /= k;
-        sum++;
-    }
-    return sum ;
-}
+
 
 int main() {
     cin.tie(0);
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    ll n;
-    int k;
-    cin >> n >> k;
-    cout << ksinsu(n, k) << endl;
+    int n;
+    vector<int> a(n+5);
+    cin >> n;
+    rep(i, n) cin >> a[i];
+
+    sort(ALL(a));
+    reverse(ALL(a));
+    int suma = 0;
+    int sumb = 0;
+    for (int i = 0; i < n;i+=2){
+        suma += a[i];
+        sumb += a[i + 1];
+    }
+    cout << suma - sumb << endl;
 }
