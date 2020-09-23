@@ -57,6 +57,14 @@ int lcm(int a, int b)
 {
     return a * b / gcd(a, b);
 }
+int sumDight(int x){
+    int sum = 0;
+    while (x >0) {
+        sum += (x %10);
+        x /= 10;
+    }
+    return sum;
+}
 
 int main()
 {
@@ -64,26 +72,18 @@ int main()
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    int n;
-    vector<ll> l(n+9);
-    cin >> n;
-    rep(i, n) cin >> l[i];
+    int n,a,b;
+    vector<ll> l;
     int sum = 0;
-    
-        rep(i, n) {
-            for (int j = i + 1; j < n ; j++) {
-                for (int k = j + 1; k < n; k++) {
-                    ll ma = max(l[i], max(l[j], l[k]));
-                    ll len = l[i] + l[j] + l[k];
-                    ll rest = len - ma;
-                    if (ma<rest && l[i] != l[j] &&l[j] != l[k] && l[i] != l[k]) {
-                        sum++;
-                        //cout << l[i] << " " << l[j] << " " << l[k] << endl;
-                    }
-                }
-            }
-        
-   cout << sum << endl; }
-   
-    
+    cin >> n >> a >> b;
+    for (int i = 1; i <= n;i++){
+        l.push_back(sumDight(i));
+    }
+    for (int j = 0; j < n; j++){
+        //cout << l[j] << endl;
+        if (l[j] >= a && l[j] <= b) {sum += j+1;
+            //cout << j << endl;
+        }
+    }
+    cout << sum << endl;
 }
