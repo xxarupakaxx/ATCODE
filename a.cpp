@@ -27,18 +27,15 @@ using P = pair<ll, ll>;
 #define S second                                //pairの二つ目の要素
 #define CST(x) cout << fixed << setprecision(x) //小数点以下の桁数指定
 template <class T>
-inline bool chmin(T &a, T b)
-{
-    if (a > b)
-    {
+inline bool chmin(T &a, T b){
+    if (a > b){
         a = b;
         return true;        
     }
     return false;
 }
 template <class T>
-inline bool chmax(T &a, T b)
-{
+inline bool chmax(T &a, T b){
     if (a < b)
     {
         a = b;
@@ -46,17 +43,17 @@ inline bool chmax(T &a, T b)
     }
     return false;
 }
-int gcd(int a, int b)
-{
+int gcd(int a, int b){
+
     if (b == 0)
         return a;
     else
         return gcd(b, a % b);
 }
-int lcm(int a, int b)
-{
+int lcm(int a, int b){
     return a * b / gcd(a, b);
 }
+//各桁の和
 int sumDight(int x){
     int sum = 0;
     while (x >0) {
@@ -65,25 +62,32 @@ int sumDight(int x){
     }
     return sum;
 }
+//回文数
+int divideReverse(int x){
+    int reverse = 0;
+    int r;
+    while (x >0){
+        r = x % 10;
+        reverse = reverse * 10 + r;
+        x /= 10;
+    }
+    return reverse;
+}
 
-int main()
-{
+int main(){
     cin.tie(0);
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    int n,a,b;
-    vector<ll> l;
+    int a, b;
+    cin >> a >> b;
+
     int sum = 0;
-    cin >> n >> a >> b;
-    for (int i = 1; i <= n;i++){
-        l.push_back(sumDight(i));
-    }
-    for (int j = 0; j < n; j++){
-        //cout << l[j] << endl;
-        if (l[j] >= a && l[j] <= b) {sum += j+1;
-            //cout << j << endl;
+    
+        for (int i = a; i <= b; i++) {
+            if(i==divideReverse(i)){
+                sum++;
+            }
         }
-    }
-    cout << sum << endl;
+        cout << sum << endl;
 }
