@@ -76,18 +76,16 @@ int main() {
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    int n;
-    vector<int> a(n+5);
-    cin >> n;
-    rep(i, n) cin >> a[i];
+    int n, k;
+    vector<int> l(101);
+    cin >> n >> k;
+    rep(i, n) cin >> l[i];
 
-    sort(ALL(a));
-    reverse(ALL(a));
-    int suma = 0;
-    int sumb = 0;
-    for (int i = 0; i < n;i+=2){
-        suma += a[i];
-        sumb += a[i + 1];
-    }
-    cout << suma - sumb << endl;
+    sort(ALL(l));
+   reverse(ALL(l));
+   int sum = 0;
+   rep(i, k)sum += l[i]; 
+
+   // rep(i, n) cout << l[i] << endl;
+   cout << sum << endl;
 }
