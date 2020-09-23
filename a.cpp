@@ -32,7 +32,7 @@ inline bool chmin(T &a, T b)
     if (a > b)
     {
         a = b;
-        return true;
+        return true;        
     }
     return false;
 }
@@ -64,30 +64,26 @@ int main()
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    int n, d;
-    cin >> n >> d;
-    vector<vector<double>> x(n, vector<double>(d));
-    rep(i, n) rep(j, d) cin >> x[i][j];
+    int n;
+    vector<ll> l(n+9);
+    cin >> n;
+    rep(i, n) cin >> l[i];
+    int sum = 0;
     
-    int total = 0;
-    vector<int> ans;
-
-    rep(i, n-1){ for (int j = i + 1; j < n; j++){int sum = 0;
-    rep(k, d) {
+        rep(i, n) {
+            for (int j = i + 1; j < n ; j++) {
+                for (int k = j + 1; k < n; k++) {
+                    ll ma = max(l[i], max(l[j], l[k]));
+                    ll len = l[i] + l[j] + l[k];
+                    ll rest = len - ma;
+                    if (ma<rest && l[i] != l[j] &&l[j] != l[k] && l[i] != l[k]) {
+                        sum++;
+                        //cout << l[i] << " " << l[j] << " " << l[k] << endl;
+                    }
+                }
+            }
         
-        sum += (x[j][k] - x[i][k]) * (x[j][k] - x[i][k]);
-        
-    }
-    ans.push_back(sum);
-        }}
-
-   rep(i,ans.size()){
-       rep(j,10000){
-           if (ans[i] == j * j) {
-               total++;
-               break;
-           }
-       }
-   }
-   cout << total << endl;
+   cout << sum << endl; }
+   
+    
 }
