@@ -79,15 +79,17 @@ int main(){
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    int a, b;
-    cin >> a >> b;
-
-    int sum = 0;
+    ll n;
+    cin >> n;
+    int mi = 10000;
     
-        for (int i = a; i <= b; i++) {
-            if(i==divideReverse(i)){
-                sum++;
+    for (int i = 1; i <=n/2; i++) {
+        int a=sumDight(i)+sumDight(n-i);
+            if(a<mi){
+                mi = a;
             }
-        }
-        cout << sum << endl;
+        
+        
+    }
+    cout << mi << endl;
 }
