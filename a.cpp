@@ -70,22 +70,25 @@ int divideReverse(int x) {
     return reverse;
 }
 
-
 int main() {
     cin.tie(0);
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    int n, l;
-    cin >> n >> l;
+    int n;
+    cin >> n;
+    vector<int> d(n);
+    for (int i = 0; i < n; i++) {
+        cin >> d.at(i);
+    }
+    sort(d.begin(), d.end());
+    // reverse(a.begin(),a.end());
+    int sum = 1;
 
-    vector<string> s(n);
-    string ans;
-
-    rep(i, n) cin >> s.at(i);
-
-    sort(ALL(s));
-
-    rep(i, n) { ans += s[i]; }
-    cout << ans << endl;
+    for (int i = 0; i < n - 1; i++) {
+        if (d.at(i) < d.at(i + 1)) {
+            sum++;
+        }
+    }
+    cout << sum << endl;
 }
