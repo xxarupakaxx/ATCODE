@@ -75,15 +75,31 @@ int main() {
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    int n,m;
-    cin >> n >> m;
-    vector<int> a(55);
-    vector<int> b(55);
-    rep(i, m) cin >> a[i] >> b[i];
-    vector<int> sum(55,0);
-    rep(i, m) { 
-        sum[a[i]]++;
-        sum[b[i]]++;
+    int w, h,n;
+    cin >> w >> h >> n;
+    vector<int> x(110);
+    vector<int> y(110);
+    vector<int> a(110);
+    rep(i, n) cin >> x[i] >> y[i] >> a[i];
+    int mix = 0;
+    int maxx = w;
+    int miy = 0;
+    int may = h;
+
+    rep(i,n){
+        if(a[i]==1){
+            if (mix < x[i]) mix = x[i];
+        } else if (a[i] == 2) {
+            if (maxx > x[i]) maxx = x[i];
+        } else if (a[i] == 3) {
+            if (miy< y[i]) miy = y[i];
+        } else {
+            if (may > y[i]) may = y[i];
+        }
     }
-    rep(i, n) cout << sum[i] << endl;
+    //cout << maxx << " " << mix << " " << may << " " << miy << endl;
+    if (maxx > mix && may > miy)
+        cout << (mix - maxx) * (miy - may) << endl;
+    else
+        cout << 0 << endl;
 }
