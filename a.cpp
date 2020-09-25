@@ -75,20 +75,119 @@ int main() {
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    int n;
-    cin >> n;
-    vector<int> d(n);
-    for (int i = 0; i < n; i++) {
-        cin >> d.at(i);
-    }
-    sort(d.begin(), d.end());
-    // reverse(a.begin(),a.end());
-    int sum = 1;
+    string s;
+    set<char> t;
 
-    for (int i = 0; i < n - 1; i++) {
-        if (d.at(i) < d.at(i + 1)) {
-            sum++;
+    cin >> s;
+    rep(i, s.size()) { t.insert(s[i]); }
+    char mi=*begin(t);
+    rep(i, t.size()) {
+        if (!t.count('a')) {
+            cout << "a" << endl;
+            break;
+        }
+        if (!t.count('b')) {
+            cout << "b" << endl;
+            break;
+        }
+        if (!t.count('c')) {
+            cout << "c" << endl;
+            break;
+        }
+        if (!t.count('d')) {
+            cout << "d" << endl;
+            break;
+        }
+        if (!t.count('e')) {
+            cout << "e" << endl;
+            break;
+        }
+        if (!t.count('f')) {
+            cout << "f" << endl;
+            break;
+        }
+        if (!t.count('g')) {
+            cout << "g" << endl;
+            break;
+        }
+        if (!t.count('h')) {
+            cout << "h" << endl;
+            break;
+        }
+        if (!t.count('i')) {
+            cout << "i" << endl;
+            break;
+        }
+        if (!t.count('j')) {
+            cout << "j" << endl;
+            break;
+        }
+        if (!t.count('k')) {
+            cout << "k" << endl;
+            break;
+        }
+        if (!t.count('l')) {
+            cout << "l" << endl;
+            break;
+        }
+        if (!t.count('m')) {
+            cout << "m" << endl;
+            break;
+        }
+        if (!t.count('n')) {
+            cout << "n" << endl;
+            break;
+        }
+        if (!t.count('o')) {
+            cout << "o" << endl;
+            break;
+        }
+        if (!t.count('p')) {
+            cout << "p" << endl;
+            break;
+        }
+          if (!t.count('q')) {
+            cout << "q" << endl;
+            break;
+        }
+        if (!t.count('r')) {
+            cout << "r" << endl;
+            break;
+        }
+          if (!t.count('s')) {
+            cout << "s" << endl;
+            break;
+        }
+        if (!t.count('t')) {
+            cout << "t" << endl;
+            break;
+        }
+        if (!t.count('u')) {
+            cout << "u" << endl;
+            break;
+        }
+        if (!t.count('v')) {
+            cout << "v" << endl;
+            break;
+        }
+        if (!t.count('w')) {
+            cout << "w" << endl;
+            break;
+        }
+        if (!t.count('x')) {
+            cout << "x" << endl;
+            break;
+        }
+        if (!t.count('y')) {
+            cout << "y" << endl;
+            break;
+        }
+        if (!t.count('z')) {
+            cout << "z" << endl;
+            break;
+        }else{
+            cout << "None" << endl;
+            break;
         }
     }
-    cout << sum << endl;
 }
