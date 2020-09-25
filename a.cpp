@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 //#include <atcoder/all>
-#define rep(i, n) for (int i = 1; i <= (n); ++i)
+#define rep(i, n) for (int i = 0; i < (n); ++i)
 // using namespace atcoder;
 using namespace std;
 using ll = long long;
@@ -75,31 +75,21 @@ int main() {
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    int w, h,n;
-    cin >> w >> h >> n;
-    vector<int> x(110);
-    vector<int> y(110);
-    vector<int> a(110);
-    rep(i, n) cin >> x[i] >> y[i] >> a[i];
-    int mix = 0;
-    int maxx = w;
-    int miy = 0;
-    int may = h;
+    int n, m;
+    cin >> n;
+    vector<string> s(110);
+    rep(i, n) cin >> s[i];
+    cin >> m;
+    vector<string> t(110);
+   rep(i, m) cin >> t[i];
 
-    rep(i,n){
-        if(a[i]==1){
-            if (mix < x[i]) mix = x[i];
-        } else if (a[i] == 2) {
-            if (maxx > x[i]) maxx = x[i];
-        } else if (a[i] == 3) {
-            if (miy< y[i]) miy = y[i];
-        } else {
-            if (may > y[i]) may = y[i];
-        }
+    map<string, int> a;
+    rep(i, n) { a[s[i]] += 1; }
+    rep(i, m) a[t[i]] -= 1;
+    int ma =0;
+    for (auto p :a){
+        ma = max(max(0, ma), a[p.first]);
+
     }
-    //cout << maxx << " " << mix << " " << may << " " << miy << endl;
-    if (maxx > mix && may > miy)
-        cout << (mix - maxx) * (miy - may) << endl;
-    else
-        cout << 0 << endl;
+    cout << ma << endl;
 }
