@@ -75,32 +75,24 @@ int main() {
     cin.tie(0);
     cout.tie(0);
     ios::sync_with_stdio(false);
-    int N, K;
-    cin >> N >> K;
-    vector<int> A(N);
-    vector<int> B(300000);
-    rep(i, N) {
-        cin >> A[i];
-        B[A[i]]++;
-    }
-    int cnt = 0;
-    sort(B.begin(), B.end());
-    rep(i, 300000) {
-        if (B[i] != 0) {
-            cnt++;
-        }
-    }
-    cnt = cnt - K;
-    ll ans = 0;
-    rep(i, 300000) {
-        if (cnt <= 0) {
-            break;
-        } else {
-            if (B[i] != 0) {
-                ans += B[i];
-                cnt--;
+
+    ll n, y;
+    cin >> n >> y;
+    bool b = false;
+    int ma, a, c;
+    for (int i = 0; i <= n; i++) {
+        for (int j = 0; j <= n;j++){
+           
+            if (n >=j+i  && n + 4 * j + 9 * i == y / 1000){
+                b = true;
+                ma = i;
+                a = j; 
+                c = n - j - i;
             }
         }
+        if (b) break;
     }
-    cout << ans << endl;
+    if(b)cout <<ma  << " " << a << " " << c << endl;
+    else
+        cout << -1 << " " << -1 << " " << -1 << endl;
 }
