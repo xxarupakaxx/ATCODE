@@ -10,6 +10,7 @@ using P = pair<ll, ll>;
 //引数は、(ループ内変数,動く範囲)か(ループ内変数,始めの数,終わりの数)、のどちらか
 // Dがついてないものはループ変数は1ずつインクリメントされ、Dがついてるものはループ変数は1ずつデクリメントされる
 #define FOR(i, a, b) for (ll i = a; i <= (ll)(b); i++)
+#define _GLIBCXX_DEBUG
 // xにはvectorなどのコンテナ
 #define ALL(x) (x).begin(), (x).end()  // sortなどの引数を省略したい
 #define SIZE(x) ((ll)(x).size())       // sizeをsize_tからllに直しておく
@@ -74,22 +75,32 @@ int main() {
     cin.tie(0);
     cout.tie(0);
     ios::sync_with_stdio(false);
-
-    int n, m;
-    cin >> n;
-    vector<string> s(110);
-    rep(i, n) cin >> s[i];
-    cin >> m;
-    vector<string> t(110);
-   rep(i, m) cin >> t[i];
-
-    map<string, int> a;
-    rep(i, n) { a[s[i]] += 1; }
-    rep(i, m) a[t[i]] -= 1;
-    int ma =0;
-    for (auto p :a){
-        ma = max(max(0, ma), a[p.first]);
-
+    int N, K;
+    cin >> N >> K;
+    vector<int> A(N);
+    vector<int> B(300000);
+    rep(i, N) {
+        cin >> A[i];
+        B[A[i]]++;
     }
-    cout << ma << endl;
+    int cnt = 0;
+    sort(B.begin(), B.end());
+    rep(i, 300000) {
+        if (B[i] != 0) {
+            cnt++;
+        }
+    }
+    cnt = cnt - K;
+    ll ans = 0;
+    rep(i, 300000) {
+        if (cnt <= 0) {
+            break;
+        } else {
+            if (B[i] != 0) {
+                ans += B[i];
+                cnt--;
+            }
+        }
+    }
+    cout << ans << endl;
 }
