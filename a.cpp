@@ -76,22 +76,33 @@ int main() {
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    int N;
-    int t[110000], x[110000], y[110000];
-    cin >> N;
-    t[0] = x[0] = y[0] = 0;                                               // 初期状態
-    for (int i = 0; i < N; ++i) cin >> t[i + 1] >> x[i + 1] >> y[i + 1];  // 1-index にしておく
+    ll n, m;
+    cin >> n >> m;
+    vector<vector<ll>> G(n);
+    rep(i, m) { 
+        ll a,b;
+        cin >> a >> b;
+        G[a].push_back({b});
 
-    bool can = true;
-    for (int i = 0; i < N; ++i) {
-        int dt = t[i + 1] - t[i];
-        int dist = abs(x[i + 1] - x[i]) + abs(y[i + 1] - y[i]);
-        if (dt < dist) can = false;
-        if (dist % 2 != dt % 2) can = false;  // dist と dt の偶奇は一致する必要あり！
     }
+    vector<bool> seen(n, false);
+    stack<ll> st;
+    st.emplace(1);
+    seen[1] = true;
+    while (st.size() != 0) {   // 深さ優先探索
+        int state = st.top();  // 現在の状態
+        st.pop();
+        for (auto next : G[state]) {
+            if (!seen[next]) {  // 未探索の時のみ行う
+                seen[next] = true;
+                st.emplace(next);  //次の状態をqueueへ格納
+            }
+        }
+    }
+    int sum = 0;
 
-    if (can)
-        cout << "Yes" << endl;
-    else
-        cout << "No" << endl;
+    rep(i, n){
+        if (seen[i] == false) sum++;
+    }
+    cout << sum << endl;
 }
