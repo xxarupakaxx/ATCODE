@@ -3,6 +3,7 @@
         "all": "cpp",
         "dsu": "cpp",
         "ostream": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "cmath": "cpp"
     }
 }
