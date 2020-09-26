@@ -78,25 +78,35 @@ int main() {
 
     string s;
     cin >> s;
-    reverse(ALL(s));
-    string t[4] = {"dream", "dreamer", "erase", "eraser"};
-    rep(i, 4) reverse(ALL(t[i]));
-    bool a = true;
-    for (int i = 0; i < (int) s.size();) {
-        bool b = false;
-        rep(j, 4) {
-            if (s.substr(i, t[j].size()) == t[j]) {
-                b = true;
-                i += t[j].size();
+    string t="";
+    int a = s.size();
+    bool b = false;
+    rep(i, a) {
+        t += s[i];
+        if (t == "dream") {
+            if (s[i + 1] == 'e' && i + 2 < a&&s[i+2]=='r') {
+               if(s[i+3]=='a'&&i+3<a){
+                   i += 3;
+                   t = "era";
+               }
+               else{
+                   i += 2;
+                   t = "";
+               }
             }
+            else
+                t = "";
+
         }
-        if (!b){
-            a = false;
-            break;
+         else if (t == "erase") {
+            if (s[i + 1] == 'r' && i + 1 < a) {
+                i++;
+                t = "";
+            } else
+                t = "";
         }
     }
-    if (a)
-        cout << "Yes" << endl;
+    if (t == "") cout << "YES" << endl;
     else
-        cout << "No" << endl;
+        cout << "NO" << endl;
 }
