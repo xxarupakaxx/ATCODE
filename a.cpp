@@ -76,23 +76,27 @@ int main() {
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    ll n, y;
-    cin >> n >> y;
-    bool b = false;
-    int ma, a, c;
-    for (int i = 0; i <= n; i++) {
-        for (int j = 0; j <= n;j++){
-           
-            if (n >=j+i  && n + 4 * j + 9 * i == y / 1000){
+    string s;
+    cin >> s;
+    reverse(ALL(s));
+    string t[4] = {"dream", "dreamer", "erase", "eraser"};
+    rep(i, 4) reverse(ALL(t[i]));
+    bool a = true;
+    for (int i = 0; i < (int) s.size();) {
+        bool b = false;
+        rep(j, 4) {
+            if (s.substr(i, t[j].size()) == t[j]) {
                 b = true;
-                ma = i;
-                a = j; 
-                c = n - j - i;
+                i += t[j].size();
             }
         }
-        if (b) break;
+        if (!b){
+            a = false;
+            break;
+        }
     }
-    if(b)cout <<ma  << " " << a << " " << c << endl;
+    if (a)
+        cout << "Yes" << endl;
     else
-        cout << -1 << " " << -1 << " " << -1 << endl;
+        cout << "No" << endl;
 }
