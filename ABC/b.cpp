@@ -76,14 +76,5 @@ int main() {
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    string a, b, c, d;
-    cin >> a >> b >> c >> d;
-    string i = "";
-    bool f = false;
-    if (max(a, c) <= min(b, d)) f = true;
-
-    if (f)
-        cout << "Yes" << endl;
-    else
-        cout << "No" << endl;
+   
 }

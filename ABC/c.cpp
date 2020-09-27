@@ -76,17 +76,6 @@ int main() {
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    ll n, m;
-    vector<ll> a(1000000);
-    vector<ll> b(1000000);
-    cin >> n >> m;
-    rep(i, m) cin >> a[i] >> b[i];
-    vector<ll> d(n+1);
-    rep(i, m) {
-        d[a[i]]++;
-        d[b[i]]++;
-    }
-    ll sum = 0;
-    
+  
 
 }

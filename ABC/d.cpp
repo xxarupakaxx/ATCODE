@@ -76,20 +76,5 @@ int main() {
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    ll n, k;
-    cin >> n >> k;
-    vector<ll> a(n);
-    rep(i, n) cin >> a[i];
-    //sort(ALL(a));
-    //vector<ll> b;
-    ll sum =a.size() ;
-    //bool c = false;
-    //cout << sum << endl;
-    rep(i, n) {
-        if (fabs(a[i] - a[i + 1]) >k){
-            sum--;
-        }
-       // if (i == n - 1 && fabs(a[i-1] - a[i]) <= k) sum++;
-    }
-    cout << sum+1 << endl;
+   
 }

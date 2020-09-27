@@ -76,8 +76,5 @@ int main() {
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    int k;
-    cin >> k;
-    rep(i, k) cout << "ACL";
-    cout << endl;
+   
 }
