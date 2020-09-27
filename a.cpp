@@ -80,11 +80,13 @@ int main() {
     cin >> n;
     string s;
     cin >> s;
-    int sum =0 ;
-    rep(i, s.size()) { if (s[i] == 'A' && s[i + 1] == 'B' && s[i + 2] == 'C' && i + 2 < n){
-            sum++;
-        }
-        
+    if (n % 2 == 1) cout << "No" << endl;
+    else{
+        string t = s.substr(0, n / 2);
+        string a = s.substr(n / 2, n - 1);
+       // cout << t<<a;
+        if (t == a) cout << "Yes" << endl;
+        else
+            cout << "No" << endl;
     }
-    cout << sum << endl;
 }
