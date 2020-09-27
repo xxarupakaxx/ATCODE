@@ -76,17 +76,19 @@ int main() {
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    ll n;
-
-    cin>>n;
-    vector<ll> t(110);
-    rep(i, n) cin >> t[i];
+    ll a, b, k;
+    cin >> a >> b >> k;
 
     ll sum = 0;
-
-    rep(i, n) { for (ll j = i + 1; j < n;j++){
-            sum += t[i] * t[j];
+    if(a<=k){
+        if(a+b>=k){
+        cout <<0<<" "<< a + b - k << endl;}
+        else{
+            cout << 0 <<" "<< 0 << endl;
         }
+
     }
-    cout << sum << endl;
+    else{
+        cout << a - k <<" "<< b << endl;
+    }
 }
