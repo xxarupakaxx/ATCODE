@@ -76,19 +76,15 @@ int main() {
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    ll a, b, k;
-    cin >> a >> b >> k;
-
-    ll sum = 0;
-    if(a<=k){
-        if(a+b>=k){
-        cout <<0<<" "<< a + b - k << endl;}
-        else{
-            cout << 0 <<" "<< 0 << endl;
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    int sum =0 ;
+    rep(i, s.size()) { if (s[i] == 'A' && s[i + 1] == 'B' && s[i + 2] == 'C' && i + 2 < n){
+            sum++;
         }
-
+        
     }
-    else{
-        cout << a - k <<" "<< b << endl;
-    }
+    cout << sum << endl;
 }
