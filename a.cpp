@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 //#include <atcoder/all>
 #define rep(i, n) for (int i = 0; i < (n); ++i)
- //using namespace atcoder;
+// using namespace atcoder;
 using namespace std;
 using ll = long long;
 using P = pair<ll, ll>;
@@ -9,7 +9,7 @@ using P = pair<ll, ll>;
 // forループ関係
 //引数は、(ループ内変数,動く範囲)か(ループ内変数,始めの数,終わりの数)、のどちらか
 // Dがついてないものはループ変数は1ずつインクリメントされ、Dがついてるものはループ変数は1ずつデクリメントされる
-#define FOR(i, a, b) for (ll i = a; i < (ll)(b); i++)
+#define FOR(i, a, b) for (ll i = a; i <= (ll)(b); i++)
 #define _GLIBCXX_DEBUG
 // xにはvectorなどのコンテナ
 #define ALL(x) (x).begin(), (x).end()  // sortなどの引数を省略したい
@@ -76,11 +76,24 @@ int main() {
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    string n;
+    ll n;
     cin >> n;
-    ll sum = 0;
-    rep(i, n.size()) { sum += n[i] - '0'; }
-    if (sum % 9 == 0) cout << "Yes" << endl;
-    else
-        cout << "No" << endl;
+    vector<string> s;
+    rep(i, n) { cin >> s[i]; }
+    int sum = 0;
+    int ans = 0;
+    int total = 0;
+    int cnt = 0;
+    rep(i, n) {
+        if (s[i] == "AC") sum++;
+        if (s[i] == "WA") ans++;
+        if (s[i] == "TLE") total++;
+        if (s[i] == "RE") cnt++;
+
+    }
+    cout << "AC x " << sum << endl;
+    cout << "WA x " <<ans << endl;
+    cout << "TLE x " << total << endl;
+    cout << "RE x " << cnt << endl;
 }
+
