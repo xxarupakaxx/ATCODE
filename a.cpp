@@ -75,20 +75,8 @@ int main() {
     cin.tie(0);
     cout.tie(0);
     ios::sync_with_stdio(false);
-    int n;
-    cin >> n;
-    vector<int> a(1000);
-    vector<int> b(1000);
-    rep(i, n) cin >> a[i] >> b[i];
 
-    bool c = false;
-
-    rep(i, n) { if (a[i] == b[i] && a[i+1] == b[i+1]&&a[i+2]==b[i+2]&&i+2<n){
-            c = true;
-            break;
-        }
-    }
-    if (c) cout << "Yes" << endl;
-    else
-        cout << "No" << endl;
+    ll a, b, c, d;
+    cin >> a >> b >> c >> d;
+    cout << max(max(a * c, a * d), max(b * c, b * d)) << endl;
 }
