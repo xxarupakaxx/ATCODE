@@ -75,18 +75,20 @@ int main() {
     cin.tie(0);
     cout.tie(0);
     ios::sync_with_stdio(false);
-
     int n;
     cin >> n;
-    string s;
-    cin >> s;
-    if (n % 2 == 1) cout << "No" << endl;
-    else{
-        string t = s.substr(0, n / 2);
-        string a = s.substr(n / 2, n - 1);
-       // cout << t<<a;
-        if (t == a) cout << "Yes" << endl;
-        else
-            cout << "No" << endl;
+    vector<int> a(1000);
+    vector<int> b(1000);
+    rep(i, n) cin >> a[i] >> b[i];
+
+    bool c = false;
+
+    rep(i, n) { if (a[i] == b[i] && a[i+1] == b[i+1]&&a[i+2]==b[i+2]&&i+2<n){
+            c = true;
+            break;
+        }
     }
+    if (c) cout << "Yes" << endl;
+    else
+        cout << "No" << endl;
 }
