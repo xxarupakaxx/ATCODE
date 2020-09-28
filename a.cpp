@@ -76,7 +76,15 @@ int main() {
     cout.tie(0);
     ios::sync_with_stdio(false);
 
-    ll a, b, c, d;
-    cin >> a >> b >> c >> d;
-    cout << max(max(a * c, a * d), max(b * c, b * d)) << endl;
+   string s,t;
+   cin >> s >> t;
+   int mi = 10000;
+   for (int i = 0; i <= s.size() - t.size();i++) {
+       int d = 0;
+       rep(j, t.size()) {
+           if (s[i + j] != t[j]) d++;
+       }
+       mi = min(d, mi);
+   }
+   cout << mi << endl;
 }
